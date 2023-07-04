@@ -75,7 +75,7 @@ void _dprintf(const char *function, int line, int level, const char *prefix,
 	va_list ap;
 
 	if (function) {
-		int thread_id = syscall(SYS_gettid);
+		int thread_id = (int)gettid();
 
 		n = snprintf(msg, sizeof(msg), "%s [%d] %s:%s:%d: ",
 			trace_level_strings[level], thread_id, prefix,

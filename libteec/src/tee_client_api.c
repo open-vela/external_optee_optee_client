@@ -44,7 +44,11 @@
 #ifndef __aligned
 #define __aligned(x) __attribute__((__aligned__(x)))
 #endif
+#ifdef __NuttX__
+#include <nuttx/tee.h>
+#else
 #include <linux/tee.h>
+#endif
 
 #include "teec_benchmark.h"
 
